@@ -28,10 +28,10 @@ span#price {
 </head>
 <body>
 	<h2>감사합니다.</h2>
-	<span id="main_menu"></span>,
-	<span id="side_menu"></span>,
-	<span id="drink_menu"></span>을/를 주문하셨습니다.
+	<span id="main_menu">${main_menu}</span>,
+	<span id="side_menu">${side_menu}</span>,
+	<span id="drink_menu">${drink_menu}</span>을/를 주문하셨습니다.
 	<br /> 총 결제금액은
-	<span id="price">원</span> 입니다.
+	<span id="price">${price}원</span> 입니다.
 </body>
 </html>

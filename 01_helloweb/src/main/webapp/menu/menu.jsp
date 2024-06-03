@@ -63,7 +63,7 @@ th,td {border:1px solid black; padding:10px;}
 	
 	<form name="menuFrm" action="/hello/menuOrder.do" method="GET">
 		메인메뉴 : 
-		<select id="main_menu" required>
+		<select name="main_menu" required>
 			<option value="" disabled selected>햄버거를 선택하세요.</option>
 			<option value="한우버거">한우버거</option>
 			<option value="치즈버거">치즈버거</option>
@@ -71,14 +71,14 @@ th,td {border:1px solid black; padding:10px;}
 		</select>
 		<br /><br />
 		사이드메뉴 :
-		<select id="side_menu"required>
+		<select name="side_menu"required>
 			<option value="" disabled selected>사이드메뉴를 선택하세요.</option>
 			<option value="감자튀김">감자튀김</option>
 			<option value="어니언링">어니언링</option>
 		</select>
 		<br /><br />
 		음료메뉴 : 
-		<select id="drink_menu" required>
+		<select name="drink_menu" required>
 			<option value="" disabled selected>음료를 선택하세요.</option>
 			<option value="콜라">콜라</option>
 			<option value="사이다">사이다</option>

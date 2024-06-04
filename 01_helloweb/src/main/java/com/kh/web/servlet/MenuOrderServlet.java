@@ -15,15 +15,15 @@ public class MenuOrderServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String menu1 = request.getParameter("main_menu");
-		String menu2 = request.getParameter("side_menu");
-		String menu3 = request.getParameter("drink_menu");
+		String main_menu = request.getParameter("main_menu");
+		String side_menu = request.getParameter("side_menu");
+		String drink_menu = request.getParameter("drink_menu");
 
 		int price = 0;
 
-		request.setAttribute("main_menu", menu1);
+//		request.setAttribute("main_menu", main_menu);
 
-		switch (menu1) {
+		switch (main_menu) {
 		case "한우버거":
 			price += 5000;
 			break;
@@ -35,9 +35,9 @@ public class MenuOrderServlet extends HttpServlet {
 			break;
 		}
 
-		request.setAttribute("side_menu", menu2);
+//		request.setAttribute("side_menu", side_menu);
 
-		switch (menu2) {
+		switch (side_menu) {
 		case "감자튀김":
 			price += 1500;
 			break;
@@ -47,9 +47,9 @@ public class MenuOrderServlet extends HttpServlet {
 
 		}
 
-		request.setAttribute("drink_menu", menu3);
+//		request.setAttribute("drink_menu", drink_menu);
 
-		switch (menu3) {
+		switch (drink_menu) {
 		case "콜라", "사이다":
 			price += 1000;
 			break;
@@ -57,7 +57,7 @@ public class MenuOrderServlet extends HttpServlet {
 			price += 1500;
 			break;
 		case "밀크쉐이크":
-			price += 2000;
+			price += 2500;
 			break;
 		}
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- 게시글 목록 페이지 -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <h2>일반게시판</h2>
 <table class='list-table'>
 	<thead>
@@ -12,10 +13,31 @@
 		</tr>
 	</thead>
 	<tbody>
-		<!-- 반복문으로 등록된 게시글들를 출력하는곳입니다. -->
-		
+		<c:forEach items="${list }" var="m">
+			<tr id="item${m.no}">
+				<th>${m.no}</th>
+				<th>${m.title}</th>
+				<th>${m.nickname}</th>
+				<th><fmt:formatDate value="${m.createDate}" pattern="20yy-MM-dd"/></th>
+			</tr>
+		</c:forEach>
 	</tbody>
 </table>
+
+<script>
+	$('tbody>tr').click(function() {
+		$.ajax({
+			url : "/ajax/board/view",
+			success : function(data) {
+				console.log(data);
+				$('.outer').html(data);
+			},
+			error : function(xhr) {
+				console.log(xhr);
+			}
+		})
+	});
+</script>
 
 
 

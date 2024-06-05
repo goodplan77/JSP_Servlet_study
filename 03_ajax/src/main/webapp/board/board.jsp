@@ -25,5 +25,34 @@
              -->
 		</div>
 	</div>
+	
+	<script>
+		$('#list').click(function (){
+			$.ajax({
+				url : "/ajax/board/list",
+				success : function(data){
+					$('.outer').html(data);
+					
+				},
+				error : function(xhr){
+					console.log(xhr);
+				}
+			});
+		});
+		
+		$('#insert').click(function (){
+			$.ajax({
+				url : "/ajax/board/insert",
+				success : function(data){
+					$('.outer').html(data);
+					
+				},
+				error : function(xhr){
+					console.log(xhr);
+				}
+			})
+		});
+		
+	</script>
 </body>
 </html>

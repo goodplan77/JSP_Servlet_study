@@ -32,5 +32,8 @@
    - 문자열
    - CSV
    - auto-complete
+   - HTML
+   - XML
+   - JSON
 
 </details>

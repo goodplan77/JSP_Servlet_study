@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <h2>일반게시판</h2>
 <table class='list-table'>
 	<thead>
@@ -14,7 +15,7 @@
 	</thead>
 	<tbody>
 		<c:forEach items="${list }" var="m">
-			<tr id="item${m.no}">
+			<tr>
 				<th>${m.no}</th>
 				<th>${m.title}</th>
 				<th>${m.nickname}</th>
@@ -26,10 +27,14 @@
 
 <script>
 	$('tbody>tr').click(function() {
+		var $no = $(this).children(':nth-of-type(1)').prop('innerText');
 		$.ajax({
 			url : "/ajax/board/view",
+			data : {
+				no : $no,
+				ct : $('tbody>tr').length
+			},
 			success : function(data) {
-				console.log(data);
 				$('.outer').html(data);
 			},
 			error : function(xhr) {

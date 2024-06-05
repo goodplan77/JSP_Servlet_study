@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.kh.board.model.vo.Board;
 
@@ -18,6 +19,8 @@ public class BoardViewServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String no = request.getParameter("no");
+		request.setAttribute("no", no);
 		request.getRequestDispatcher("/board/view.jsp").forward(request, response);
 	}
 

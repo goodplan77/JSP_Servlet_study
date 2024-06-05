@@ -23,3 +23,23 @@
 	</tr>
 </table>
 
+<script>
+	$('#btn').click(function() {
+		$.ajax({
+			method : "POST",
+			url : "/ajax/board/insert",
+			data : {
+				inputtitle : $('input[name=title]').val(),
+				inputnickname : $('input[name=nickname]').val(),
+				inputcontent : $('textarea[name=content]').val()
+			},
+			success : function(data) {
+				console.log('1234');
+			},
+			error : function(xhr) {
+				console.log(xhr);
+			}
+		})
+	})
+</script>
+

@@ -39,6 +39,8 @@ public class BoardInsertServlet extends HttpServlet {
 		temp.add(board);
 
 		session.setAttribute("list", temp);
+		
+		request.getRequestDispatcher("/board/list.jsp").forward(request, response);
 
 	}
 }

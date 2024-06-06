@@ -35,6 +35,7 @@
 			},
 			success : function(data) {
 				alert('저장성공!');
+				$('.outer').html(data);
 			},
 			error : function(xhr) {
 				console.log(xhr);

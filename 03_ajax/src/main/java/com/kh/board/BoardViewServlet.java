@@ -19,8 +19,11 @@ public class BoardViewServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession();
+		
 		String no = request.getParameter("no");
 		request.setAttribute("no", no);
+		
 		request.getRequestDispatcher("/board/view.jsp").forward(request, response);
 	}
 

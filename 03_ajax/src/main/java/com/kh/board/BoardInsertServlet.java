@@ -1,7 +1,6 @@
 package com.kh.board;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -24,14 +23,22 @@ public class BoardInsertServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {	
-			
+			throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+
+		List<Board> temp = (List<Board>) session.getAttribute("list");
+
 		Board board = new Board();
-		board.setNo(11);
-		board.setTitle((String) request.getAttribute("inputtitle"));
-		board.setNickname((String) request.getAttribute("inputnickname"));
-		board.setContent((String) request.getAttribute("inputcontent"));
+		board.setNo(temp.size() + 1);
+		board.setTitle(request.getParameter("inputtitle"));
+		board.setNickname(request.getParameter("inputnickname"));
+		board.setContent(request.getParameter("inputcontent"));
 		board.setCreateDate(new Date());
+
+		temp.add(board);
+
+		session.setAttribute("list", temp);
 
 	}
 }

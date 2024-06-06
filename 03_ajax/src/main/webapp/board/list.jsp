@@ -19,20 +19,21 @@
 				<th>${m.no}</th>
 				<th>${m.title}</th>
 				<th>${m.nickname}</th>
-				<th><fmt:formatDate value="${m.createDate}" pattern="20yy-MM-dd"/></th>
+				<th><fmt:formatDate value="${m.createDate}"
+						pattern="20yy-MM-dd" /></th>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
-<script>
+<script>	
 	$('tbody>tr').click(function() {
 		var $no = $(this).children(':nth-of-type(1)').prop('innerText');
+
 		$.ajax({
 			url : "/ajax/board/view",
 			data : {
-				no : $no,
-				ct : $('tbody>tr').length
+				no : $no
 			},
 			success : function(data) {
 				$('.outer').html(data);

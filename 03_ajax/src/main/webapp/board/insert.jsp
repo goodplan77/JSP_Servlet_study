@@ -34,7 +34,7 @@
 				inputcontent : $('textarea[name=content]').val()
 			},
 			success : function(data) {
-				console.log('1234');
+				alert('저장성공!');
 			},
 			error : function(xhr) {
 				console.log(xhr);

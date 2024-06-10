@@ -13,4 +13,8 @@
 		FROM MEMBER
 		WHERE USER_ID = ?
 	</entry>
+	<entry key="enroll">
+		INSERT INTO MEMBER 
+		VALUES(?,?,?,?,?,?,?,?,?,?,'Y')
+	</entry>
 </properties>

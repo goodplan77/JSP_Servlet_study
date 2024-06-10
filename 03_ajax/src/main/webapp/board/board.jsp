@@ -27,7 +27,7 @@
 	</div>
 	
 	<script>
-		$('#list').click(function (){
+		/* $('#list').click(function (){
 			$.ajax({
 				url : "/ajax/board/list",
 				success : function(data){
@@ -38,9 +38,28 @@
 					console.log(xhr);
 				}
 			});
-		});
+		}); */
 		
-		$('#insert').click(function (){
+		function showList() {
+			$.ajax({
+				url : "/ajax/board/list",
+				success : function(data){
+					$('.outer').html(data);
+					
+				},
+				error : function(xhr){
+					console.log(xhr);
+				}
+			});
+		}
+		
+		$("#list").on('click',function(){
+			showList();
+		})
+		
+		showList();
+		
+		/* $('#insert').click(function (){
 			$.ajax({
 				url : "/ajax/board/insert",
 				success : function(data){
@@ -51,7 +70,21 @@
 					console.log(xhr);
 				}
 			})
-		});
+		}); */
+		
+		$('#insert').on('click',function() {
+			$.ajax({
+				url : "/ajax/board/insert",
+				method : 'GET',
+				success : function(data){
+					$('.outer').html(data);
+					
+				},
+				error : function(xhr){
+					console.log(xhr);
+				}
+			})
+		})
 		
 	</script>
 </body>

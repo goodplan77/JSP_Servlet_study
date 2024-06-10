@@ -20,6 +20,11 @@ public class BoardListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		List<Board> list = (List<Board>)session.getAttribute("list");
+		
+		request.setAttribute("list",list);
+		
 		request.getRequestDispatcher("/board/list.jsp").forward(request, response);
 	}
 

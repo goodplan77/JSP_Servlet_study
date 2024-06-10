@@ -14,20 +14,20 @@
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${list }" var="m">
+		<c:forEach var="m" items="${list }" >
 			<tr>
-				<th>${m.no}</th>
-				<th>${m.title}</th>
-				<th>${m.nickname}</th>
-				<th><fmt:formatDate value="${m.createDate}"
-						pattern="20yy-MM-dd" /></th>
+				<td>${m.no}</td>
+				<td>${m.title}</td>
+				<td>${m.nickname}</td>
+				<td><fmt:formatDate value="${m.createDate}"
+						pattern="20yy-MM-dd" /></td>
 			</tr>
 		</c:forEach>
 	</tbody>
 </table>
 
 <script>	
-	$('tbody>tr').click(function() {
+	/* $('tbody>tr').click(function() {
 		var $no = $(this).children(':nth-of-type(1)').prop('innerText');
 
 		$.ajax({
@@ -42,7 +42,22 @@
 				console.log(xhr);
 			}
 		})
-	});
+	}); */
+	
+	$('table.list-table>tbody>tr').on("click",function(){
+		var no = $(this).children().eq(0).text().trim();
+		
+		$.ajax({
+			url : "/ajax/board/view",
+			data : {no} ,
+			success : function(data){
+				$(".outer").html(data);
+			},
+			error : function(xhr){
+				console.log(xhr);
+			}
+		})
+	})
 </script>
 
 

@@ -24,7 +24,7 @@
 </table>
 
 <script>
-	$('#btn').click(function() {
+	/* $('#btn').click(function() {
 		$.ajax({
 			method : "POST",
 			url : "/ajax/board/insert",
@@ -39,6 +39,27 @@
 			},
 			error : function(xhr) {
 				console.log(xhr);
+			}
+		})
+	}) */
+	
+	$("#btn").on("click",function(){
+		$.ajax({
+			url : "/ajax/board/insert",
+			method : "POST",
+			data : {
+				title : $("[name=title]").val(),
+				content : $("[name=content]").val(),
+				nickname : $("[name=nickname]").val()
+			},
+			success : function(data){
+				alert(data);
+				showList();
+			},
+			error : function(xhr){
+				console.log(xhr);
+				alert("게시글 저장 실패");
+				showList();
 			}
 		})
 	})

@@ -19,12 +19,22 @@ public class BoardViewServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+//		HttpSession session = request.getSession();
+//		
+//		String no = request.getParameter("no");
+//		request.setAttribute("no", no);
+//		
+//		request.getRequestDispatcher("/board/view.jsp").forward(request, response);
+		List<Board> list = (List<Board>) request.getSession().getAttribute("list");
 		
-		String no = request.getParameter("no");
-		request.setAttribute("no", no);
+		int no = Integer.parseInt(request.getParameter("no"));
+		for(Board b : list) {
+			if(no == b.getNo()) {
+				request.setAttribute("b", b);
+				break;
+			}
+		}
 		
 		request.getRequestDispatcher("/board/view.jsp").forward(request, response);
 	}
-
 }

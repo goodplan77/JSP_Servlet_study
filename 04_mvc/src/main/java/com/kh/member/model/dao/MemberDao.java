@@ -18,8 +18,9 @@ public class MemberDao {
 	private Properties prop = new Properties();
 
 	public MemberDao() {
-		// xml 파일 로드?
+		// MemberDao 생성시 xml 파일 로드
 		String fileName = MemberDao.class.getResource("/sql/member-mapper.xml").getPath();
+		// 실제 경로는 배포 폴더인 classes 폴더 내부에 있는 sql/member-mapper.xml 실행
 
 		try {
 			prop.loadFromXML(new FileInputStream(fileName));
@@ -78,7 +79,7 @@ public class MemberDao {
 			rset = pstmt.executeQuery();
 
 			if (rset.next()) {
-				count = rset.getInt(1); //getInt("COUNT(*)");
+				count = rset.getInt(1); // getInt("COUNT(*)");
 			}
 
 		} catch (SQLException e) {
@@ -87,9 +88,32 @@ public class MemberDao {
 			close(rset);
 			close(pstmt);
 		}
-		
+
 		return count;
 
+	}
+
+	public int insertMember(Connection conn, Member m) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertMember");
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m.getUserId());
+			pstmt.setString(2, m.getUserPwd());
+			pstmt.setString(3, m.getUserName());
+			pstmt.setString(4, m.getPhone());
+			pstmt.setString(5, m.getEmail());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, m.getInterest());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
 	}
 
 }

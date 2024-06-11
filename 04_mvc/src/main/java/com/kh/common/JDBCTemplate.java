@@ -15,6 +15,9 @@ public class JDBCTemplate {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "C##SERVER", "SERVER");
+			
+			conn.setAutoCommit(false);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -27,7 +30,7 @@ public class JDBCTemplate {
 	public static void commit(Connection conn) {
 
 		try {
-			if (conn != null && conn.isClosed()) {
+			if (conn != null && !conn.isClosed()) {
 				// 커넥션 설정 완료 , 닫혀 있을때만 commit 실행
 				conn.commit();
 			}
@@ -41,7 +44,7 @@ public class JDBCTemplate {
 	public static void rollback(Connection conn) {
 
 		try {
-			if (conn != null && conn.isClosed()) {
+			if (conn != null && !conn.isClosed()) {
 				// 커넥션 설정 완료 , 닫혀 있을때만 rollback 실행
 				conn.rollback();
 			}
@@ -54,7 +57,7 @@ public class JDBCTemplate {
 	public static void close(Connection conn) {
 
 		try {
-			if (conn != null && conn.isClosed()) {
+			if (conn != null && !conn.isClosed()) {
 				// 커넥션 설정 완료 , 닫혀 있을때만 close 실행
 				conn.close();
 			}
@@ -69,7 +72,7 @@ public class JDBCTemplate {
 	public static void close(Statement stmt) {
 
 		try {
-			if (stmt != null && stmt.isClosed()) {
+			if (stmt != null && !stmt.isClosed()) {
 				// 스테이트먼트 설정 완료 , 닫혀 있을때만 close 실행
 				stmt.close();
 			}
@@ -82,7 +85,7 @@ public class JDBCTemplate {
 	public static void close(ResultSet rset) {
 
 		try {
-			if (rset != null && rset.isClosed()) {
+			if (rset != null && !rset.isClosed()) {
 				// ResultSet 설정 완료 , 닫혀 있을때만 close 실행
 				rset.close();
 			}

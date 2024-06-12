@@ -10,7 +10,10 @@
 	<h1>Hello Mybatis</h1>
 	<h2>student</h2>
 	<ul>
-		<li><a href="/mybatis/student/insertStudent">/student/insertStudent</a>
+		<li>
+			<a href="/mybatis/student/insertStudent.do">/student/insertStudent</a>
+			<a href="/mybatis/student/selectOne.do">/student/selectOne</a>
+			<a href="/mybatis/student/selectList.do">/student/selectLists</a>
 		</li>
 	</ul>
 </body>

@@ -42,8 +42,8 @@ public class StudentDao {
 		return sqlsession.selectList("student.selectStudentList"); // 조회결과가 없을때 빈 컬렉션 반환
 	}
 
-	public List<Map<String , Object>> selectStudentListMap(SqlSession sqlsession) {
-		return sqlsession.selectList("student.selectStudentListMap");
+	public List<Map<String, Object>> selectStudentMapList(SqlSession sqlsession) {
+		return sqlsession.selectList("student.selectStudentMapList");
 	}
 
 }

@@ -119,10 +119,10 @@ public class StudentService {
 		return list;
 	}
 
-	public List<Map<String , Object>> selectStudentListMap() {
+	public List<Map<String, Object>> selectStudentMapList() {
 		SqlSession sqlsession = getSqlSession();
 
-		List<Map<String , Object>> maplist = dao.selectStudentListMap(sqlsession);
+		List<Map<String , Object>> maplist = dao.selectStudentMapList(sqlsession);
 
 		sqlsession.close();
 

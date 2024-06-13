@@ -20,9 +20,9 @@ public class SelectStudentListController extends AbstractController{
 	public String doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1) 비즈니스 로직 (학생 정보 조회)
 		List<Student> list = studentService.selectStudentList();
-		List<Map<String,Object>> mapList = studentService.selectStudentListMap();
+		System.out.println(list);
 		
-		Map<String,Object> map = null;
+		List<Map<String,Object>> mapList = studentService.selectStudentMapList();
 
 		// 2) jsp페이지에게 작업 위임
 		request.setAttribute("list", list);

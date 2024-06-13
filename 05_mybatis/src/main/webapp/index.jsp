@@ -16,5 +16,12 @@
 			<a href="/mybatis/student/selectList.do">/student/selectLists</a>
 		</li>
 	</ul>
+	
+	<h2>employee</h2>
+	<ul>
+		<li><a href="/mybatis/emp/serarch1.do">/emp/serarch1.do</a></li>
+		<li><a href="/mybatis/emp/serarch2.do">/emp/serarch2.do</a></li>
+		<li><a href="/mybatis/emp/serarch3.do">/emp/serarch3.do</a></li>
+	</ul>
 </body>
 </html>

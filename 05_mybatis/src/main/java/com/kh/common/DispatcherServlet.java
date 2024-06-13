@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // "/" 디폴트매핑
-@WebServlet("*.do")
+@WebServlet("/")
 public class DispatcherServlet extends HttpServlet {
 	/*
 	 * DispatcherServlet - 스프링 프레임워크에서 관리하는 단 하나뿐인 서블릿 - 클라이언트의 "모든" 요청을 가장 먼저 받은 후
@@ -31,6 +31,10 @@ public class DispatcherServlet extends HttpServlet {
 	 * /student/insertStudent -> InsertStudentController /student/insertStudentMap
 	 * -> InsertStudentMapController - Servlet 객체가 초기화될때 등록가능한 핸들러정보들을 읽어들인 후
 	 * urlPattern과 핸들러를 key:value 형태로 보관.
+	 * 
+	 * 2. ViewResolver
+	 * - 핸들러의 반환값(viewName)을 기반으로 클라이언트에게 응답할 view 페이지를 선택하는 객체
+	 * 	ex) Controller 에서 "notice/list" 를 반환하면 "/WEB-INF/views/" + viewName + ".jsp"
 	 */
 
 	private static final long serialVersionUID = 1L;

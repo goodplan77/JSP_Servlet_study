@@ -107,18 +107,14 @@
    
    <!-- List<Map<String,Object>> list 형태로 데이터 조회하는 코드 작성후, -->
    
-   <select id="selectStudentListMap" resultMap="studentVoMap2">
-   		SELECT * FROM STUDENT
+   <select id="selectStudentMapList" resultType="map">
+   		SELECT
+   			NO "no",
+   			NAME "name",
+   			TEL "tel",
+   			REG_DATE "regDate"
+   		FROM STUDENT
    		ORDER BY NO DESC
    </select>
-   
-   <resultMap id="studentVoMap2" type="map">
-      <!-- pk 칼럼용 태그(id) -->
-      <id column="no" property="no"/>
-      <!-- 나머지 칼럼 -->
-      <result column="name" property="name"/>
-      <result column="tel" property="tel"/>
-      <result column="reg_date" property="regDate"/>
-   </resultMap>
    
 </mapper>

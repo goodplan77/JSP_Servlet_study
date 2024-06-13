@@ -42,3 +42,15 @@
 <summary>04 MVC (04_mvc)</summary>
 
 </details>
+
+<details>
+<summary>05 MyBatis (05_mybatis)</summary>
+
+   - 기본 개요
+   - 기본 설정 및 사용
+   - 동적 SQL
+   - DispatcherServlet 활용
+   - 예시
+      - Table : Student
+      - Table : Employee
+</details>
